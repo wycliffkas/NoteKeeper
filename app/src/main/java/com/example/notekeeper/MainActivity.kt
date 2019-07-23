@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,8 +17,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val originalValue = textDisplayedValue.text.toString().toInt()
+
+            val newValue = originalValue * 2
+            textDisplayedValue.text = newValue.toString();
+
+
+            Snackbar.make(view, " Original value: $originalValue  changed to $newValue ", Snackbar.LENGTH_LONG)
+                .show()
         }
     }
 
